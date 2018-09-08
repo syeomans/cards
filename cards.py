@@ -13,15 +13,15 @@ class card:
 		Ex: QH (Queen of Hearts) returns 12, 9C (9 of Clubs) returns 9, etc.
 		If aceHigh is false, Ace returns 1; else, Ace returns 14
 		"""
-		if self.suit == "J":
+		if self.value == "J":
 			return(11)
-		elif self.suit == "Q":
+		elif self.value == "Q":
 			return(12)
-		elif self.suit == "K":
+		elif self.value == "K":
 			return(13)
-		elif self.suit == "A" and self.aceHigh:
+		elif self.value == "A" and self.aceHigh:
 			return(14)
-		elif self.suit == "A":
+		elif self.value == "A":
 			return(1)
 		else:
 			return(int(self.value))
