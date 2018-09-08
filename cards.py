@@ -34,7 +34,8 @@ class card:
 
 	def getName(self):
 		"""
-		Returns the shorthand (two-character) name of the card, which can be used as a unique identifier in a single deck.
+		Returns the shorthand (two-character) name of the card, which can be used as a 
+		unique identifier in a single deck.
 
 		For example, the Queen of Hearts has the name QH
 		"""
@@ -68,8 +69,8 @@ class deck:
 		return(returnList)
 
 class hand:
-	def __init__(self):
-		self.cards = []
+	def __init__(self, cardList = []):
+		self.cards = cardList
 
 	def draw(self, cardList):
 		self.cards.extend(cardList)
