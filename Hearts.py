@@ -48,8 +48,12 @@ class player:
 			if legalMoves == []:
 				for card in thisHand:
 					legalMoves.append(card.getName())
-
 		return(legalMoves)
+
+		def selectCard(self):
+			moves = self.legalMoves()
+			return(legalMoves[randint(0,len(moves))])
+
 
 	def play(self, cardName):
 		return(self.hand.play(cardName))
@@ -62,8 +66,30 @@ deck.shuffle()
 players = [player(deck.deal(13)) for i in range(0,4)]
 
 # Initialize global variables
-leadingCard = None
+leadingCard = '2C'
 heartsBroken = False
+tookLastTrick = 0 # integer 0-3, representing which player took the last trick
+playing = True
+
+# Player with 2C leads first trick
+for player in players:
+	if player.query2C() == True:
+		player.play('2C')
+		break
+	tookLastTrick += 1
+
+
+leadingCard = None # For test purposes, the leading card has not been chosen. 
+# Second trick and onward
+while playing:
+	# Start from the player who took the last trick
+	for i in [tookLastTrick, (tookLastTrick+1)%4, (tookLastTrick+2)%4, (tookLastTrick+3)%4]:
+		# Make a move
+		move = players[i].selectCard()
+		# If the player is leading the trick, record the card (s)he played. 
+		if i == tookLastTrick:
+			leadingCard = move.getName()
+
 
 
 
