@@ -13,15 +13,15 @@ class card:
 		Ex: QH (Queen of Hearts) returns 12, 9C (9 of Clubs) returns 9, etc.
 		If aceHigh is false, Ace returns 1; else, Ace returns 14
 		"""
-		if self.suit == "J":
+		if self.value == "J":
 			return(11)
-		elif self.suit == "Q":
+		elif self.value == "Q":
 			return(12)
-		elif self.suit == "K":
+		elif self.value == "K":
 			return(13)
-		elif self.suit == "A" and self.aceHigh:
+		elif self.value == "A" and self.aceHigh:
 			return(14)
-		elif self.suit == "A":
+		elif self.value == "A":
 			return(1)
 		else:
 			return(int(self.value))
@@ -34,7 +34,8 @@ class card:
 
 	def getName(self):
 		"""
-		Returns the shorthand (two-character) name of the card, which can be used as a unique identifier in a single deck.
+		Returns the shorthand (two-character) name of the card, which can be used as a 
+		unique identifier in a single deck.
 
 		For example, the Queen of Hearts has the name QH
 		"""
@@ -68,8 +69,8 @@ class deck:
 		return(returnList)
 
 class hand:
-	def __init__(self):
-		self.cards = []
+	def __init__(self, cardList = []):
+		self.cards = cardList
 
 	def draw(self, cardList):
 		self.cards.extend(cardList)
