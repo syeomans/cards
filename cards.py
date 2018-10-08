@@ -52,7 +52,7 @@ class deck:
 	def shuffle(self):
 		random.shuffle(self.cards)
 
-	def deal(self, numCards = 1):
+	def deal(self, numCards):
 		returnList = []
 		for i in range(0,numCards):
 			returnList.append(self.cards.pop())
